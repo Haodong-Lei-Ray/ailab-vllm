@@ -1,0 +1,124 @@
+=== vLLM 服务端启动 ===
+模型: Qwen3-30B-A3B-Instruct-2507
+S3: s3://datafrontier/leihaodong/Qwen/Qwen3-30B-A3B-Instruct-2507/
+端口: 8101
+张量并行 GPU 数: 2（请确认 sbatch 已申请 --gres=gpu:2）
+CUDA_VISIBLE_DEVICES=6,7
+使用 qwen35_env: /mnt/petrelfs/leihaodong/miniconda3/envs/qwen35_env
+vllm OK: 0.16.1rc1.dev290+g86483ca77.d20260305
+挂载 S3...
+bucket datafrontier is mounted at /nvme/leihaodong/s3_mount_vllm_8440241
+挂载成功: /nvme/leihaodong/s3_mount_vllm_8440241
+模型路径: /nvme/leihaodong/s3_mount_vllm_8440241/leihaodong/Qwen/Qwen3-30B-A3B-Instruct-2507
+total 59652605
+drwxr-xr-x 2 leihaodong leihaodong          0 Mar 25 16:34 .
+drwxr-xr-x 2 leihaodong leihaodong          0 Mar 25 16:34 ..
+-rw-r--r-- 1 leihaodong leihaodong      77313 Mar 25 13:08 config_1m.json
+-rw-r--r-- 1 leihaodong leihaodong        963 Mar 25 13:08 config.json
+-rw-r--r-- 1 leihaodong leihaodong         48 Mar 25 13:08 configuration.json
+-rw-r--r-- 1 leihaodong leihaodong        239 Mar 25 13:08 generation_config.json
+-rw-r--r-- 1 leihaodong leihaodong      11343 Mar 25 13:08 LICENSE
+-rw-r--r-- 1 leihaodong leihaodong    1671839 Mar 25 13:08 merges.txt
+-rw-r--r-- 1 leihaodong leihaodong 3998893112 Mar 25 13:10 model-00001-of-00016.safetensors
+-rw-r--r-- 1 leihaodong leihaodong 3999974192 Mar 25 13:13 model-00002-of-00016.safetensors
+-rw-r--r-- 1 leihaodong leihaodong 3997360832 Mar 25 13:15 model-00003-of-00016.safetensors
+-rw-r--r-- 1 leihaodong leihaodong 3999975056 Mar 25 13:18 model-00004-of-00016.safetensors
+-rw-r--r-- 1 leihaodong leihaodong 3999975400 Mar 25 13:21 model-00005-of-00016.safetensors
+-rw-r--r-- 1 leihaodong leihaodong 3999975400 Mar 25 13:24 model-00006-of-00016.safetensors
+-rw-r--r-- 1 leihaodong leihaodong 3999975472 Mar 25 13:28 model-00007-of-00016.safetensors
+-rw-r--r-- 1 leihaodong leihaodong 3997362064 Mar 25 13:30 model-00008-of-00016.safetensors
+-rw-r--r-- 1 leihaodong leihaodong 3999975408 Mar 25 13:33 model-00009-of-00016.safetensors
+-rw-r--r-- 1 leihaodong leihaodong 3999975400 Mar 25 13:35 model-00010-of-00016.safetensors
+-rw-r--r-- 1 leihaodong leihaodong 3999975408 Mar 25 13:38 model-00011-of-00016.safetensors
+-rw-r--r-- 1 leihaodong leihaodong 3987924896 Mar 25 13:40 model-00012-of-00016.safetensors
+-rw-r--r-- 1 leihaodong leihaodong 3999975088 Mar 25 13:42 model-00013-of-00016.safetensors
+-rw-r--r-- 1 leihaodong leihaodong 3999975400 Mar 25 13:45 model-00014-of-00016.safetensors
+-rw-r--r-- 1 leihaodong leihaodong 3999975400 Mar 25 13:47 model-00015-of-00016.safetensors
+-rw-r--r-- 1 leihaodong leihaodong 1085307128 Mar 25 13:48 model-00016-of-00016.safetensors
+-rw-r--r-- 1 leihaodong leihaodong    1699758 Mar 25 13:48 model.safetensors.index.json
+-rw-r--r-- 1 leihaodong leihaodong      15418 Mar 25 13:48 README.md
+-rw-r--r-- 1 leihaodong leihaodong       9377 Mar 25 13:48 tokenizer_config.json
+-rw-r--r-- 1 leihaodong leihaodong   11422654 Mar 25 13:48 tokenizer.json
+-rw-r--r-- 1 leihaodong leihaodong    2776833 Mar 25 13:48 vocab.json
+连接信息已写入: /mnt/petrelfs/leihaodong/local_model/vllm/vllm_connection_8440241.txt
+
+=== 启动 vLLM 服务 (Ctrl+C 或 scancel 结束) ===
+(APIServer pid=170341) INFO 03-25 16:34:32 [utils.py:292] 
+(APIServer pid=170341) INFO 03-25 16:34:32 [utils.py:292]        █     █     █▄   ▄█
+(APIServer pid=170341) INFO 03-25 16:34:32 [utils.py:292]  ▄▄ ▄█ █     █     █ ▀▄▀ █  version 0.16.1rc1.dev290+g86483ca77.d20260305
+(APIServer pid=170341) INFO 03-25 16:34:32 [utils.py:292]   █▄█▀ █     █     █     █  model   /nvme/leihaodong/s3_mount_vllm_8440241/leihaodong/Qwen/Qwen3-30B-A3B-Instruct-2507
+(APIServer pid=170341) INFO 03-25 16:34:32 [utils.py:292]    ▀▀  ▀▀▀▀▀ ▀▀▀▀▀ ▀     ▀
+(APIServer pid=170341) INFO 03-25 16:34:32 [utils.py:292] 
+(APIServer pid=170341) INFO 03-25 16:34:32 [utils.py:228] non-default args: {'host': '0.0.0.0', 'port': 8101, 'model': '/nvme/leihaodong/s3_mount_vllm_8440241/leihaodong/Qwen/Qwen3-30B-A3B-Instruct-2507', 'trust_remote_code': True, 'served_model_name': ['Qwen3-30B-A3B-Instruct-2507'], 'tensor_parallel_size': 2, 'gpu_memory_utilization': 0.92, 'max_num_seqs': 64}
+(APIServer pid=170341) WARNING 03-25 16:34:32 [envs.py:1706] Unknown vLLM environment variable detected: VLLM_TORCH_COMPILE_LEVEL
+(APIServer pid=170341) INFO 03-25 16:34:33 [model.py:531] Resolved architecture: Qwen3MoeForCausalLM
+(APIServer pid=170341) INFO 03-25 16:34:33 [model.py:1554] Using max model len 262144
+(APIServer pid=170341) INFO 03-25 16:34:33 [scheduler.py:231] Chunked prefill is enabled with max_num_batched_tokens=2048.
+(APIServer pid=170341) INFO 03-25 16:34:33 [vllm.py:747] Asynchronous scheduling is enabled.
+(EngineCore_DP0 pid=170714) INFO 03-25 16:34:53 [core.py:101] Initializing a V1 LLM engine (v0.16.1rc1.dev290+g86483ca77.d20260305) with config: model='/nvme/leihaodong/s3_mount_vllm_8440241/leihaodong/Qwen/Qwen3-30B-A3B-Instruct-2507', speculative_config=None, tokenizer='/nvme/leihaodong/s3_mount_vllm_8440241/leihaodong/Qwen/Qwen3-30B-A3B-Instruct-2507', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, tokenizer_revision=None, trust_remote_code=True, dtype=torch.bfloat16, max_seq_len=262144, download_dir=None, load_format=auto, tensor_parallel_size=2, pipeline_parallel_size=1, data_parallel_size=1, decode_context_parallel_size=1, dcp_comm_backend=ag_rs, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, enable_return_routed_experts=False, kv_cache_dtype=auto, device_config=cuda, structured_outputs_config=StructuredOutputsConfig(backend='auto', disable_fallback=False, disable_any_whitespace=False, disable_additional_properties=False, reasoning_parser='', reasoning_parser_plugin='', enable_in_reasoning=False), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None, kv_cache_metrics=False, kv_cache_metrics_sample=0.01, cudagraph_metrics=False, enable_layerwise_nvtx_tracing=False, enable_mfu_metrics=False, enable_mm_processor_stats=False, enable_logging_iteration_details=False), seed=0, served_model_name=Qwen3-30B-A3B-Instruct-2507, enable_prefix_caching=True, enable_chunked_prefill=True, pooler_config=None, compilation_config={'mode': <CompilationMode.VLLM_COMPILE: 3>, 'debug_dump_path': None, 'cache_dir': '', 'compile_cache_save_format': 'binary', 'backend': 'inductor', 'custom_ops': ['none'], 'splitting_ops': ['vllm::unified_attention', 'vllm::unified_attention_with_output', 'vllm::unified_mla_attention', 'vllm::unified_mla_attention_with_output', 'vllm::mamba_mixer2', 'vllm::mamba_mixer', 'vllm::short_conv', 'vllm::linear_attention', 'vllm::plamo2_mamba_mixer', 'vllm::gdn_attention_core', 'vllm::kda_attention', 'vllm::sparse_attn_indexer', 'vllm::rocm_aiter_sparse_attn_indexer', 'vllm::unified_kv_cache_update', 'vllm::unified_mla_kv_cache_update'], 'compile_mm_encoder': False, 'compile_sizes': [], 'compile_ranges_split_points': [2048], 'inductor_compile_config': {'enable_auto_functionalized_v2': False}, 'inductor_passes': {}, 'cudagraph_mode': <CUDAGraphMode.FULL_AND_PIECEWISE: (2, 1)>, 'cudagraph_num_of_warmups': 1, 'cudagraph_capture_sizes': [1, 2, 4, 8, 16, 24, 32, 40, 48, 56, 64, 72, 80, 88, 96, 104, 112, 120, 128], 'cudagraph_copy_inputs': False, 'cudagraph_specialize_lora': True, 'use_inductor_graph_partition': False, 'pass_config': {'fuse_norm_quant': False, 'fuse_act_quant': False, 'fuse_attn_quant': False, 'enable_sp': False, 'fuse_gemm_comms': False, 'fuse_allreduce_rms': False}, 'max_cudagraph_capture_size': 128, 'dynamic_shapes_config': {'type': <DynamicShapesType.BACKED: 'backed'>, 'evaluate_guards': False, 'assume_32_bit_indexing': False}, 'local_cache_dir': None, 'fast_moe_cold_start': True, 'static_all_moe_layers': []}
+(EngineCore_DP0 pid=170714) WARNING 03-25 16:34:53 [multiproc_executor.py:989] Reducing Torch parallelism from 64 threads to 1 to avoid unnecessary CPU contention. Set OMP_NUM_THREADS in the external environment to tune this value as needed.
+(EngineCore_DP0 pid=170714) INFO 03-25 16:34:53 [network_utils.py:187] Port 8101 is already in use, trying port 8102
+(EngineCore_DP0 pid=170714) INFO 03-25 16:34:53 [multiproc_executor.py:133] DP group leader: node_rank=0, node_rank_within_dp=0, master_addr=127.0.0.1, mq_connect_ip=10.140.37.35 (local), world_size=2, local_world_size=2
+WARNING 03-25 16:35:11 [multiproc_executor.py:802] Exception closing inherited connection: [Errno 9] Bad file descriptor
+WARNING 03-25 16:35:11 [multiproc_executor.py:802] Exception closing inherited connection: [Errno 9] Bad file descriptor
+WARNING 03-25 16:35:11 [multiproc_executor.py:802] Exception closing inherited connection: [Errno 9] Bad file descriptor
+WARNING 03-25 16:35:11 [multiproc_executor.py:802] Exception closing inherited connection: [Errno 9] Bad file descriptor
+(Worker pid=171372) INFO 03-25 16:35:14 [parallel_state.py:1395] world_size=2 rank=1 local_rank=1 distributed_init_method=tcp://127.0.0.1:8102 backend=nccl
+(Worker pid=171371) INFO 03-25 16:35:14 [parallel_state.py:1395] world_size=2 rank=0 local_rank=0 distributed_init_method=tcp://127.0.0.1:8102 backend=nccl
+(Worker pid=171372) ERROR 03-25 16:35:15 [pynccl_wrapper.py:324] Failed to load NCCL library from libnccl.so.2. It is expected if you are not running on NVIDIA/AMD GPUs.Otherwise, the nccl library might not exist, be corrupted or it does not support the current platform Linux-3.10.0-957.el7.x86_64-x86_64-with-glibc2.17. If you already have the library, please set the environment variable VLLM_NCCL_SO_PATH to point to the correct nccl library path.
+(Worker pid=171371) ERROR 03-25 16:35:15 [pynccl_wrapper.py:324] Failed to load NCCL library from libnccl.so.2. It is expected if you are not running on NVIDIA/AMD GPUs.Otherwise, the nccl library might not exist, be corrupted or it does not support the current platform Linux-3.10.0-957.el7.x86_64-x86_64-with-glibc2.17. If you already have the library, please set the environment variable VLLM_NCCL_SO_PATH to point to the correct nccl library path.
+(Worker pid=171372) WARNING 03-25 16:35:15 [symm_mem.py:67] SymmMemCommunicator: Device capability 8.0 not supported, communicator is not available.
+(Worker pid=171371) WARNING 03-25 16:35:15 [symm_mem.py:67] SymmMemCommunicator: Device capability 8.0 not supported, communicator is not available.
+(Worker pid=171372) ERROR 03-25 16:35:15 [pynccl_wrapper.py:324] Failed to load NCCL library from libnccl.so.2. It is expected if you are not running on NVIDIA/AMD GPUs.Otherwise, the nccl library might not exist, be corrupted or it does not support the current platform Linux-3.10.0-957.el7.x86_64-x86_64-with-glibc2.17. If you already have the library, please set the environment variable VLLM_NCCL_SO_PATH to point to the correct nccl library path.
+(Worker pid=171371) ERROR 03-25 16:35:15 [pynccl_wrapper.py:324] Failed to load NCCL library from libnccl.so.2. It is expected if you are not running on NVIDIA/AMD GPUs.Otherwise, the nccl library might not exist, be corrupted or it does not support the current platform Linux-3.10.0-957.el7.x86_64-x86_64-with-glibc2.17. If you already have the library, please set the environment variable VLLM_NCCL_SO_PATH to point to the correct nccl library path.
+(Worker pid=171372) INFO 03-25 16:35:15 [parallel_state.py:1717] rank 1 in world size 2 is assigned as DP rank 0, PP rank 0, PCP rank 0, TP rank 1, EP rank 1, EPLB rank N/A
+(Worker pid=171371) INFO 03-25 16:35:15 [parallel_state.py:1717] rank 0 in world size 2 is assigned as DP rank 0, PP rank 0, PCP rank 0, TP rank 0, EP rank 0, EPLB rank N/A
+(Worker pid=171371) (Worker_TP0 pid=171371) INFO 03-25 16:35:15 [gpu_model_runner.py:4261] Starting to load model /nvme/leihaodong/s3_mount_vllm_8440241/leihaodong/Qwen/Qwen3-30B-A3B-Instruct-2507...
+(Worker pid=171371) (Worker_TP0 pid=171371) INFO 03-25 16:35:16 [cuda.py:405] Using FLASH_ATTN attention backend out of potential backends: ['FLASH_ATTN', 'TRITON_ATTN', 'FLEX_ATTENTION'].
+(Worker pid=171371) (Worker_TP0 pid=171371) INFO 03-25 16:35:16 [flash_attn.py:593] Using FlashAttention version 2
+(Worker pid=171371) (Worker_TP0 pid=171371) INFO 03-25 16:35:16 [unquantized.py:186] Using TRITON backend for Unquantized MoE
+(Worker pid=171371) (Worker_TP0 pid=171371) INFO 03-25 16:36:20 [default_loader.py:293] Loading weights took 63.62 seconds
+(Worker pid=171371) (Worker_TP0 pid=171371) INFO 03-25 16:36:20 [gpu_model_runner.py:4344] Model loading took 28.51 GiB memory and 64.552217 seconds
+(Worker pid=171371) (Worker_TP0 pid=171371) WARNING 03-25 16:36:22 [fused_moe.py:1093] Using default MoE config. Performance might be sub-optimal! Config file not found at /mnt/petrelfs/leihaodong/miniconda3/envs/qwen35_env/lib/python3.11/site-packages/vllm/model_executor/layers/fused_moe/configs/E=128,N=384,device_name=NVIDIA_A100-SXM4-80GB.json
+(Worker pid=171371) (Worker_TP0 pid=171371) INFO 03-25 16:36:23 [monitor.py:35] torch.compile and initial profiling run took 2.86 s in total
+(Worker pid=171371) (Worker_TP0 pid=171371) INFO 03-25 16:36:24 [gpu_worker.py:424] Available KV cache memory: 43.56 GiB
+(EngineCore_DP0 pid=170714) INFO 03-25 16:36:24 [kv_cache_utils.py:1314] GPU KV cache size: 951,568 tokens
+(EngineCore_DP0 pid=170714) INFO 03-25 16:36:24 [kv_cache_utils.py:1319] Maximum concurrency for 262,144 tokens per request: 3.63x
+(Worker pid=171371) (Worker_TP0 pid=171371) INFO 03-25 16:36:29 [custom_all_reduce.py:216] Registering 1067 cuda graph addresses
+(Worker pid=171372) (Worker_TP1 pid=171372) INFO 03-25 16:36:29 [custom_all_reduce.py:216] Registering 1067 cuda graph addresses
+(Worker pid=171371) (Worker_TP0 pid=171371) INFO 03-25 16:36:29 [gpu_model_runner.py:5366] Graph capturing finished in 5 secs, took 2.47 GiB
+(EngineCore_DP0 pid=170714) INFO 03-25 16:36:29 [core.py:282] init engine (profile, create kv cache, warmup model) took 8.90 seconds
+(EngineCore_DP0 pid=170714) INFO 03-25 16:36:33 [vllm.py:747] Asynchronous scheduling is enabled.
+(APIServer pid=170341) INFO 03-25 16:36:33 [api_server.py:496] Supported tasks: ['generate']
+(APIServer pid=170341) WARNING 03-25 16:36:33 [model.py:1355] Default vLLM sampling parameters have been overridden by the model's `generation_config.json`: `{'temperature': 0.7, 'top_k': 20, 'top_p': 0.8}`. If this is not intended, please relaunch vLLM instance with `--generation-config vllm`.
+(APIServer pid=170341) INFO 03-25 16:36:33 [serving.py:182] Warming up chat template processing...
+(APIServer pid=170341) INFO 03-25 16:36:34 [hf.py:318] Detected the chat template content format to be 'string'. You can set `--chat-template-content-format` to override this.
+(APIServer pid=170341) INFO 03-25 16:36:34 [serving.py:207] Chat template warmup completed in 874.7ms
+(APIServer pid=170341) INFO 03-25 16:36:34 [api_server.py:501] Starting vLLM server on http://0.0.0.0:8101
+(APIServer pid=170341) INFO 03-25 16:36:34 [launcher.py:36] Available routes are:
+(APIServer pid=170341) INFO 03-25 16:36:34 [launcher.py:45] Route: /openapi.json, Methods: GET, HEAD
+(APIServer pid=170341) INFO 03-25 16:36:34 [launcher.py:45] Route: /docs, Methods: GET, HEAD
+(APIServer pid=170341) INFO 03-25 16:36:34 [launcher.py:45] Route: /docs/oauth2-redirect, Methods: GET, HEAD
+(APIServer pid=170341) INFO 03-25 16:36:34 [launcher.py:45] Route: /redoc, Methods: GET, HEAD
+(APIServer pid=170341) INFO 03-25 16:36:34 [launcher.py:45] Route: /tokenize, Methods: POST
+(APIServer pid=170341) INFO 03-25 16:36:34 [launcher.py:45] Route: /detokenize, Methods: POST
+(APIServer pid=170341) INFO 03-25 16:36:34 [launcher.py:45] Route: /load, Methods: GET
+(APIServer pid=170341) INFO 03-25 16:36:34 [launcher.py:45] Route: /version, Methods: GET
+(APIServer pid=170341) INFO 03-25 16:36:34 [launcher.py:45] Route: /health, Methods: GET
+(APIServer pid=170341) INFO 03-25 16:36:34 [launcher.py:45] Route: /metrics, Methods: GET
+(APIServer pid=170341) INFO 03-25 16:36:34 [launcher.py:45] Route: /v1/models, Methods: GET
+(APIServer pid=170341) INFO 03-25 16:36:34 [launcher.py:45] Route: /ping, Methods: GET
+(APIServer pid=170341) INFO 03-25 16:36:34 [launcher.py:45] Route: /ping, Methods: POST
+(APIServer pid=170341) INFO 03-25 16:36:34 [launcher.py:45] Route: /invocations, Methods: POST
+(APIServer pid=170341) INFO 03-25 16:36:34 [launcher.py:45] Route: /v1/chat/completions, Methods: POST
+(APIServer pid=170341) INFO 03-25 16:36:34 [launcher.py:45] Route: /v1/chat/completions/render, Methods: POST
+(APIServer pid=170341) INFO 03-25 16:36:34 [launcher.py:45] Route: /v1/responses, Methods: POST
+(APIServer pid=170341) INFO 03-25 16:36:34 [launcher.py:45] Route: /v1/responses/{response_id}, Methods: GET
+(APIServer pid=170341) INFO 03-25 16:36:34 [launcher.py:45] Route: /v1/responses/{response_id}/cancel, Methods: POST
+(APIServer pid=170341) INFO 03-25 16:36:34 [launcher.py:45] Route: /v1/completions, Methods: POST
+(APIServer pid=170341) INFO 03-25 16:36:34 [launcher.py:45] Route: /v1/completions/render, Methods: POST
+(APIServer pid=170341) INFO 03-25 16:36:34 [launcher.py:45] Route: /v1/messages, Methods: POST
+(APIServer pid=170341) INFO 03-25 16:36:34 [launcher.py:45] Route: /v1/messages/count_tokens, Methods: POST
+(APIServer pid=170341) INFO 03-25 16:36:34 [launcher.py:45] Route: /inference/v1/generate, Methods: POST
+(APIServer pid=170341) INFO 03-25 16:36:34 [launcher.py:45] Route: /scale_elastic_ep, Methods: POST
+(APIServer pid=170341) INFO 03-25 16:36:34 [launcher.py:45] Route: /is_scaling_elastic_ep, Methods: POST
